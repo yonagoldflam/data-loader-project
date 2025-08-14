@@ -1,20 +1,14 @@
 import mysql.connector
-from mysql.connector import Error
+import os
 
 class DataLoader:
     def __init__(self):
-        try:
-            self.connection = mysql.connector.connect(
-                #!!!!!!!!!!!!!
-                # need fix env
-                host="localhost",
-                user="root",
-                password="",
-                database="mydatabase"
+        self.connection = mysql.connector.connect(
+            host=os.getenv("MYSQL_HOST"),
+            user=os.getenv("MYSQL_USER"),
+            password=os.getenv("MYSQL_PASSWORD"),
+            database=os.getenv("MYSQL_DATABASE")
+        )
 
-            )
-            if not self.connection.is_connected():
-                raise Error("Error connecting to MySQL database")
-        except Error as e:
-            print(f'mysql connection error: {e}')
+
 

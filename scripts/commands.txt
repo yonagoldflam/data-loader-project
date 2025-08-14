@@ -1,1 +1,13 @@
 oc login --token=sha256~97Qxk4X0VQxhx_PfH-KTu0DXT9uiSTHlX-Gvpr24rMk --server=https://api.rm2.thpm.p1.openshiftapps.com:6443
+cd apply -f mysql-deployment.yaml
+oc apply -f mysql-pvc.yaml
+oc apply -f mysql-secret.yaml
+
+docker build -t data-loader-fastapi3 .
+docker tag data-loader-fastapi1:latest zalmen85/data-loader-fastapi3:latest
+docker login
+docker push zalmen85/data-loader-fastapi2:latest
+
+oc apply -f FAPI-deployment.yaml
+oc apply -f FAPI-service.yaml
+כאן צריך להיות אקספוז אבל לא הצלחתי לפרוש כמו שצריך את האפליקציה של הפייתון
