@@ -1,0 +1,1 @@
+oc login --token=sha256~97Qxk4X0VQxhx_PfH-KTu0DXT9uiSTHlX-Gvpr24rMk --server=https://api.rm2.thpm.p1.openshiftapps.com:6443
