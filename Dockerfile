@@ -2,8 +2,10 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY . .
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-CMD ["uvicorn", "services.data_loader.app:app", "--host", "0.0.0.0", "--port", "8000"]
+COPY services/data_loader .
+
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from dal import Dall
 
+
 app = FastAPI()
 
 dall = Dall()
