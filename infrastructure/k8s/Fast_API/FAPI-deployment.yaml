@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: data-loader
-        image: zalmen85/data-loader-fastapi4
+        image: zalmen85/data-loader-fastapi20
         ports:
         - containerPort: 8000
         env:

@@ -11,5 +11,10 @@ class Dall:
             cursor.execute(f"SELECT * FROM {table_name}")
             return cursor.fetchall()
 
+    def insert(self, table_name,columns, data):
+        with self.connection.cursor(dictionary=True) as cursor:
+            cursor.execute(f"INSERT INTO {table_name} ({columns}) VALUES ({data})")
+            return cursor.lastrowid
+
 
 

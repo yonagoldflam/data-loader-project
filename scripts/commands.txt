@@ -4,11 +4,10 @@ oc apply -f mysql-pvc.yaml
 oc apply -f mysql-service.yaml
 oc apply -f mysql-secret.yaml
 
-docker build -t data-loader-fastapi4 .
-docker tag data-loader-fastapi1:latest zalmen85/data-loader-fastapi4:latest
+docker build -t data-loader-fastapi5 .
+docker tag data-loader-fastapi1:latest zalmen85/data-loader-fastapi5:latest
 docker login
-docker push zalmen85/data-loader-fastapi4:latest
+docker push zalmen85/data-loader-fastapi5:latest
 
 oc apply -f FAPI-deployment.yaml
 oc apply -f FAPI-service.yaml
-כאן צריך להיות אקספוז אבל לא הצלחתי לפרוש כמו שצריך את האפליקציה של הפייתון
